@@ -1,10 +1,10 @@
 # electrumx-docker
-Dockerfile for [electrumx](https://github.com/kyuupichan/electrumx) on Ubuntu with leveldb and daemontools.
+Dockerfile for [BitCraft's ElectrumX](https://github.com/BitCraftIO/electrumx) on Ubuntu with leveldb and daemontools.
 
 ## Usage
 ### Step 1. Configuration
 ```
-git clone https://github.com/followtheart/electrumx-docker.git
+git clone https://github.com/BitCraftIO/electrumx-docker.git
 cd electrumx-docker
 ```
 
@@ -17,12 +17,7 @@ For AltCoins,edit your coin class in `env/coins.py`.`env/coins.py` will be appen
 Leave others defaults
 
 ### Step 2.Run
-Run from docker hub:
-```shell
-    docker run -v env:/env  -idt followtheart/electrumx
-```
-
-Or,build your special env docker image :
+Build your docker image:
 ```shell
       docker build -t electrumx .
       docker run -v -idt electrumx
