@@ -1,0 +1,12 @@
+version: '3'
+services:
+  electrumx:
+    build: .
+    image: bitcraftio/electrumx
+    depends_on:
+      - bitcoind
+  bitcoind:
+    image: bitcraftio/bitcoind
+    command: ["bitcoind", "-rpcallowip=::/0", "-txindex=1", "-server"]
+    volumes:
+      - /bitcoin
