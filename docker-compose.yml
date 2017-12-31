@@ -7,6 +7,6 @@ services:
       - bitcoind
   bitcoind:
     image: bitcraftio/bitcoind
-    command: ["bitcoind", "-rpcallowip=::/0", "-txindex=1", "-server"]
+    command: ["bitcoind", "-rpcallowip=::/0", "-txindex=1", "-server", "-testnet"]
     volumes:
       - /bitcoin
