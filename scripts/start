@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+from sys import argv
+from subprocess import call
+
+class Coin:
+    def __init__(self, name, daemon_url):
+        self.name = name
+        self.daemon_url = daemon_url
+
+    def create_env_file(self, file_name, content):
+        with open('env/{}'.format(file_name), 'w') as f:
+            f.write(content)
+
+    def create_env_files(self):
+        self.create_env_file('COIN', self.name)
+        self.create_env_file('DAEMON_URL', self.daemon_url)
+
+coins = {
+    'bitcoin': Coin('BitcoinSegwit', 'http://bitcoind:8332/'),
+    'bitcoin-testnet': Coin('BitcoinSegwitTestnet', 'http://bitcoind:18332/')
+}
+
+selected_coin = argv[1]
+
+if selected_coin in coins:
+    coin = coins[selected_coin]
+    coin.create_env_files()
+
+    compose_file = 'config/docker-compose.{}.yml'.format(selected_coin)
+    command = ['docker-compose', '-f', compose_file, 'up']
+    call(command)
