@@ -11,4 +11,4 @@ services:
     image: bitcraftio/bitcoind
     command: ["bitcoind", "-rpcallowip=::/0", "-txindex=1", "-server", "-testnet"]
     volumes:
-      - "./bitcoin-testnet-data:~/.bitcoin"
+      - "./bitcoin-testnet-data:/bitcoin/.bitcoin"
