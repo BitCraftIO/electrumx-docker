@@ -1,5 +1,9 @@
 *.swp
 
+# Ignore certain env files
+env/COIN
+env/DAEMON_URL
+
 # Coins data directories
 bitcoin-data/*
 bitcoin-testnet-data/*
