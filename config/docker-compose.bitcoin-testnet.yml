@@ -4,11 +4,11 @@ services:
     build: .
     image: bitcraftio/electrumx
     volumes:
-        - "./env:/home/electrumx/scripts/electrumx/env"
+        - "../env:/home/electrumx/scripts/electrumx/env"
     depends_on:
       - bitcoind
   bitcoind:
     image: bitcraftio/bitcoind
     command: ["bitcoind", "-rpcallowip=::/0", "-txindex=1", "-server", "-testnet"]
     volumes:
-      - "./bitcoin-testnet-data:/bitcoin/.bitcoin"
+      - "../bitcoin-testnet-data:/bitcoin/.bitcoin"
