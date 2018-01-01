@@ -3,6 +3,8 @@ services:
   electrumx:
     build: .
     image: bitcraftio/electrumx
+    volumes:
+        - "./env:/home/electrumx/scripts/electrumx/env"
     depends_on:
       - bitcoind
   bitcoind:
