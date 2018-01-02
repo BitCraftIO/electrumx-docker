@@ -5,6 +5,9 @@ services:
     image: bitcraftio/electrumx
     volumes:
         - "../env:/home/electrumx/scripts/electrumx/env"
+    ports:
+        - 50001:50001
+        - 50002:50002
     depends_on:
       - bitcoind
   bitcoind:
